@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang=’es’>
+    <head>
+        <title>Lista de recetas</title>
+        <meta charset=’utf-8’>
+        <link rel="stylesheet" href='{{STATIC_URL}}css/maquetacion.css' type="text/css"/>  
+    </head>
+    <style type="text/css">
+        body { font-family:Courier New;}
+    </style>
+    <body>  
+        <div id ="cabecera"><center><strong>Nuestras Recetas</strong></center></div>
+            
+            <div id ="izquierda">
+                <ul>
+                    <li><label>Consulta de Recetas:<br></label></li><select class="inputText" style="width: 170px;"></select>
+                    <button>Buscar</button><br>
+                    <li><a href='/receta/nueva'>Agregar una receta</a></li>
+                    <li><a href='/usuario/nuevo'>Registrarse</a></li>
+                    <li><a href="/ingresar">Log in</a></li>
+                    <!--<li><a href="/receta/ordenada"> Ordenar Alfabeticamente</a></li>-->
+                    <li><a href="/receta/fecha"> Ordenar por fecha</a></li><br>
+                    
+                </ul>
+            </div>
+            {% for elemento in busqueda %}
+            <div id ="derecha">
+                
+                <div id="image"><img src='{{MEDIA_URL}}{{elemento.imagen}}' width='150px' height='150px'></div>
+                <div id="ingredientes">
+                   <strong><label>Ingredientes-</label>{{elemento.titulo}}:</strong>
+                    <li>{{elemento.ingredientes}}</li>
+                </div>
+                <div id="preparacion"><label> <em> Preparacion:<br></em></label>
+                    <li>{{elemento.preparacion}}</li>
+                </div>
+                
+                <div id="edit">
+
+                   
+                    <div id="cc">
+                        <button>Editar</button>
+                        <button>Eliminar</button>
+                        
+                    </div>
+                    
+                                      
+                </div>
+                
+            </div>  
+            {% endfor %}
+            <div id ="pie"> Aplicacion Realizada con el framework Django-- by Golo</div>  
+     </body>  
+</html>  

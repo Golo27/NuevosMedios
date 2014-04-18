@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang=’es’>
+	<head>
+		<title>Ingreso de Ususarios</title>
+		<meta charset=’utf-8’>
+	</head>
+<body>
+	<h1>Ingreso</h1>
+{% block contenido %}
+	<form id='formulario' method='post' action=''>{% csrf_token %}
+		<table>{{formulario}}</table>
+		<p><input type='submit' value='ingresar'/></p>
+	</form>
+{% endblock %}
+</body>
+</html>
